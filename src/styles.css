@@ -93,6 +93,10 @@ header {
   color: #f7b7e1;
 }
 
+.footer-link {
+  color: #98d4f4;
+}
+
 .clickable-span {
   color: #0c89cb;
   text-decoration-line: underline;
