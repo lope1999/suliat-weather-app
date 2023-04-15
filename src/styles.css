@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&family=Sedgwick+Ave+Display&display=swap");
+
+header {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.wrapper {
+  box-shadow: rgb(211 150 219) 0px 8px 8px 0;
+  background: linear-gradient(to top, #0c89cb 0%, #ac87b2 100%);
+  border-radius: 10px;
+  color: #fff;
+  width: 50%;
+  padding: 30px;
+  margin: 30px auto;
+  font-family: "Playfair Display", serif;
+}
+
+.suliat-title {
+  box-shadow: rgba(2, 71, 161, 0.541) 0px 8px 8px 0;
+  background: linear-gradient(to top, #98d4f4 30%, #e2edfc 70%);
+  width: 40%;
+  justify-content: center;
+  text-align: center;
+  font-family: "Sedgwick Ave Display", cursive;
+}
+
+.suiat-logo {
+  width: 15%;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 16px;
+}
+
+.current-button-wrapper {
+  margin-left: 50%;
+  align-items: center;
+  display: flex;
+}
+
+/* .current-button {
+  color: black;
+} */
+
+.weather-section {
+  box-shadow: rgba(2, 71, 161, 0.541) 0px 8px 8px 0;
+  background: linear-gradient(to top, #98d4f4 20%, #e2edfc 80%);
+}
+
+.weather-span {
+  display: flex;
+}
+
+.city-details {
+  color: #0b5b87;
+  font-size: 15px;
+  cursor: pointer;
+  background: linear-gradient(to top, #cee2ed 0%, #e2edfc 100%);
+}
+.city-details:hover {
+  color: azure;
+  background: linear-gradient(to top, #98d4f4 0%, #98d4f4 100%);
+}
+
+.city-text {
+  font-family: "Sedgwick Ave Display", cursive;
+  color: black;
+  text-transform: capitalize;
+}
+
+.temp-description {
+  text-transform: capitalize;
+}
+
+.weather-div {
+  display: grid;
+  justify-content: center;
+}
+
+.weather-logo {
+  width: 150px;
+}
+
+.weather-day {
+  font-size: 36px;
+  text-align: center;
+}
+
+.suliat-footer {
+  font-size: 10px;
+  color: #f7b7e1;
+}
+
+.clickable-span {
+  color: #0c89cb;
+  text-decoration-line: underline;
+}
+.clickable-span:hover {
+  cursor: pointer;
+}
+
+.unclickable-span {
+  cursor: default;
+}

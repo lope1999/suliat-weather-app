@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suliat Weather App</title>
+    <link href="src/styles.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+  </head>
+
+  <body>
+    <div class="wrapper border border-info">
+      <header>
+        <span class="suliat-title card border rounded-pill">
+          <img
+            class="suiat-logo"
+            src="./images/logo-s2.png"
+            alt="Suliat's Logo"
+          />
+          <h6 class="title">Suliat's Weather App</h6>
+        </span>
+        <div class="current-button-wrapper">
+          <button class="current-button btn btn-outline-info" id="current-btn">
+            current
+          </button>
+        </div>
+      </header>
+
+      <content>
+        <form
+          id="search-city"
+          class="input-group mb-3 shadow-lg bg-body-tertiary rounded"
+        >
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Type a name of a city..."
+            aria-label="Recipient's username"
+            aria-describedby="search"
+            id="city-input"
+          />
+          <button class="btn btn-outline-info" type="submit">Search</button>
+        </form>
+
+        <section class="weather-section card rounded">
+          <div class="row card-body">
+            <div class="col">
+              <div class="row mb-3">
+                <span class="weather-span">
+                  <img src="./images/animated-weather-icons/cloudy-day-3.svg" />
+                  <div>Mon <br />28°C</div>
+                </span>
+              </div>
+              <div class="row mb-3">
+                <span class="weather-span">
+                  <img src="./images/animated-weather-icons/rainy-1.svg" />
+                  <div>Tues <br />26°C</div>
+                </span>
+              </div>
+              <div class="row mb-3">
+                <span class="weather-span">
+                  <img src="./images/animated-weather-icons/snowy-1.svg" />
+                  <div>Wed <br />20°C</div>
+                </span>
+              </div>
+              <div class="row mb-3">
+                <span class="weather-span">
+                  <img src="./images/animated-weather-icons/thunder.svg" />
+                  <div>Thurs <br />22°C</div>
+                </span>
+              </div>
+              <div class="row mb-3">
+                <span class="weather-span">
+                  <img src="./images/animated-weather-icons/day.svg" />
+                  <div>Fri <br />32°C</div>
+                </span>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="city-details row shadow-lg bg-body-tertiary rounded">
+                <h2 class="city-text" id="city-text"></h2>
+                <br />
+                <p>
+                  <span id="current-date"> </span>
+                  <span>
+                    ,
+                    <span class="temp-description" id="temp-description">
+                    </span>
+                  </span>
+                </p>
+                <p>
+                  Humidity:<span id="humidity"></span>% Wind:
+                  <span id="wind"></span>km/h
+                </p>
+              </div>
+              <div class="row">
+                <div class="weather-div">
+                  <div class="weather-day">
+                    <span id="temperature"></span>
+                    <sup>
+                      °C
+                      <!-- <span id="celcius">°C</span> |
+                      <span class="clickable-span" id="fahrenheit">°F</span> -->
+                    </sup>
+                  </div>
+                  <img
+                    class="weather-logo"
+                    src="./images/animated-weather-icons/day.svg"
+                  />
+                  <!-- <div class="weather-day">32°C</div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </content>
+
+      <footer class="suliat-footer container mt-3 p-1 rounded text-center fs-6">
+        <!-- <div class="card-body"> -->
+        This project was coded by Suliat and is open-sourced on Github and
+        hosted on Netlify
+        <!-- </div> -->
+      </footer>
+    </div>
+
+    <script src="src/index.js"></script>
+  </body>
+</html>
