@@ -71,6 +71,10 @@ header {
 }
 
 .temp-description {
+  display: block;
+}
+
+.temp-description::first-letter {
   text-transform: capitalize;
 }
 
@@ -80,7 +84,15 @@ header {
 }
 
 .weather-logo {
-  width: 150px;
+  width: 100px;
+  height: 100px;
+  padding: 0;
+}
+
+.units {
+  position: relative;
+  font-size: 14px;
+  top: -14px;
 }
 
 .weather-day {
@@ -89,7 +101,6 @@ header {
 }
 
 .suliat-footer {
-  font-size: 10px;
   color: #f7b7e1;
 }
 
@@ -97,14 +108,8 @@ header {
   color: #98d4f4;
 }
 
-.clickable-span {
-  color: #0c89cb;
-  text-decoration-line: underline;
-}
-.clickable-span:hover {
-  cursor: pointer;
-}
-
-.unclickable-span {
+.units .active {
+  color: #47494a;
   cursor: default;
+  text-decoration: none;
 }

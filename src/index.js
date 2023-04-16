@@ -1,38 +1,34 @@
 // CONVERT temperature from °C to °F and vice-versa
-// let temperature = document.querySelector("#temperature");
+let temperature = document.querySelector("#temperature");
+let celciusTemperature = null;
 
-// //convert to celcius
-// function convertToCelcius(fTemp) {
-//   var fToCel = Math.round(((fTemp - 32) * 5) / 9);
-//   temperature.innerHTML = fToCel;
-//   celcius.classList.remove("clickable-span");
-//   fahrenheit.classList.add("clickable-span");
-// }
+//convert to celcius
+function convertToCelcius(event) {
+  event.preventDefault();
+  // var fToCel = Math.round(((fTemp - 32) * 5) / 9);
+  temperature.innerHTML = Math.round(celciusTemperature);
+  fahrenheit.classList.remove("active");
+  celcius.classList.add("active");
+}
 
-// let celcius = document.querySelector("#celcius");
-// celcius.addEventListener("click", () =>
-//   convertToCelcius(temperature.innerHTML)
-// );
+let celcius = document.querySelector("#celcius");
+celcius.addEventListener("click", convertToCelcius);
 
-// //convert to fahrenheit
-// function convertToFahrenheit(cTemp) {
-//   var cToFahr = Math.round((cTemp * 9) / 5 + 32);
-//   temperature.innerHTML = cToFahr;
-//   fahrenheit.classList.remove("clickable-span");
-//   celcius.classList.add("clickable-span");
-// }
+//convert to fahrenheit
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  var cToFahr = Math.round((celciusTemperature * 9) / 5 + 32);
+  temperature.innerHTML = cToFahr;
+  celcius.classList.remove("active");
+  fahrenheit.classList.add("active");
+}
 
-// let fahrenheit = document.querySelector("#fahrenheit");
+let fahrenheit = document.querySelector("#fahrenheit");
+fahrenheit.addEventListener("click", convertToFahrenheit);
 
-// if (fahrenheit.classList.contains("clickable-span")) {
-//   fahrenheit.addEventListener("click", () =>
-//     convertToFahrenheit(temperature.innerHTML)
-//   );
-// }
-
-// DISPLAY of the current date and time
-function getCurrentDate(date) {
-  let dateText = document.querySelector("#current-date");
+// FORMAT of date and time
+function formatDate(timeStamp) {
+  let date = new Date(timeStamp);
   let days = [
     "Sunday",
     "Monday",
@@ -44,14 +40,12 @@ function getCurrentDate(date) {
   ];
   let currentDay = days[date.getDay()];
   let currentTime = date.toLocaleString("en-US", {
-    // hour12: false,
     hour: "2-digit",
     minute: "2-digit",
   });
 
-  dateText.innerHTML = `${currentDay} ${currentTime}`;
+  return `Last updated: ${currentDay} ${currentTime},`;
 }
-getCurrentDate(new Date());
 
 //DISPLAY the name of the city searched and the current temp of that city
 function fetchCityWeather(response) {
@@ -62,19 +56,37 @@ function fetchCityWeather(response) {
   document.querySelector("#city-text").innerHTML = data.name;
 
   // Temperature
-  document.querySelector("#temperature").innerHTML = Math.round(data.main.temp);
+  celciusTemperature = data.main.temp;
+  document.querySelector("#temperature").innerHTML =
+    Math.round(celciusTemperature);
 
   // Temperature Description
   document.querySelector("#temp-description").innerHTML =
     data.weather[0].description;
 
   // Wind
-  document.querySelector("#wind").innerHTML = Math.round(data.wind.speed);
+  document.querySelector("#wind").innerHTML = `  Wind: ${Math.round(
+    data.wind.speed
+  )} km/h`;
 
   // Humidity
-  document.querySelector("#humidity").innerHTML = Math.round(
+  document.querySelector("#humidity").innerHTML = ` Humidity: ${Math.round(
     data.main.humidity
+  )}%`;
+
+  // Date
+  document.querySelector("#current-date").innerHTML = formatDate(
+    data.dt * 1000
   );
+
+  // Icon
+  let iconElement = document.querySelector("#weather-icon");
+
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/w/${data.weather[0].icon}.png`
+  );
+  iconElement.setAttribute("alt", data.weather[0].description);
 }
 
 function search(city) {
@@ -106,7 +118,7 @@ function getCurrentWeather(position) {
   axios.get(apiUrl).then(fetchCityWeather);
 }
 
-function handleCurrentBtnClick() {
+function handleCurrentBtnClick(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(getCurrentWeather);
 }
