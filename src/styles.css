@@ -44,13 +44,18 @@ header {
   color: black;
 } */
 
-.weather-section {
+.weather-forecast {
   box-shadow: rgba(2, 71, 161, 0.541) 0px 8px 8px 0;
   background: linear-gradient(to top, #98d4f4 20%, #e2edfc 80%);
 }
 
-.weather-span {
+.weather-forecast-span {
   display: flex;
+}
+
+.weather-forecast-date,
+.weather-forecast-temperature-min {
+  opacity: 0.5;
 }
 
 .city-details {
