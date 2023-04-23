@@ -198,8 +198,18 @@ function search(city) {
 
 function handleCitySearch(event) {
   event.preventDefault();
+
+  // remove the active class on °F and add to °C
+  fahrenheit.classList.remove("active");
+  celcius.classList.add("active");
+
   let city = document.querySelector("#city-input").value;
-  search(city);
+  city = city.trim();
+  if (city.length > 0) {
+    search(city);
+  } else {
+    alert("Please enter a city name!");
+  }
 }
 
 let citySearchForm = document.querySelector("#search-city");
