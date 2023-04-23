@@ -217,6 +217,10 @@ citySearchForm.addEventListener("submit", handleCitySearch);
 
 //HANDLE current button click
 function getCurrentWeather(position) {
+  // remove the active class on °F and add to °C
+  fahrenheit.classList.remove("active");
+  celcius.classList.add("active");
+
   let long = position.coords.longitude;
   let lat = position.coords.latitude;
 
